@@ -1,22 +1,27 @@
 {"player":[
   {
     "name": "SUI Sensei",
-    "ssid": "76561198357821968"
+    "ssid": "76561198357821968",
+    "twitch": "sui_sensei"
   },
   {
     "name": "ice cookie",
-    "ssid": "76561198362773238"
+    "ssid": "76561198362773238",
+    "twitch": "dldnjs842"
   },
   {
     "name": "shabbang",
-    "ssid": "76561198220154913"
+    "ssid": "76561198220154913",
+    "twitch": "shabbang"
   },
   {
     "name": "skein",
-    "ssid": "76561198158040173"
+    "ssid": "76561198158040173",
+    "twitch": "smg0218"
   },
   {
     "name": "Ripeul",
-    "ssid": "76561198151185510"
+    "ssid": "76561198151185510",
+    "twitch": "ripeul2"
   }
 ]}

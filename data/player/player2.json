@@ -1,28 +1,35 @@
-{"player":[
-  {
-    "name": "✿VZN✿ Neo",
-    "ssid": "76561198354513974",
-    "twitch": "vzn_neo"
-  },
-  {
-    "name": "✿VZN✿ BBoSom",
-    "ssid": "76561198835171517",
-    "twitch": "bbosom_",
-    "youtube": "UCd6ENct-AAupVDQ0EYqUgXQ"
-  },
-  {
-    "name": "SieR",
-    "ssid": "76561198320985763",
-    "twitch": "sier_vr"
-  },
-  {
-    "name": "Canis",
-    "ssid": "76561198004835698",
-    "twitch": "canis531"
-  },
-  {
-    "name": "skein",
-    "ssid": "76561198158040173",
-    "twitch": "smg0218"
-  }
-]}
+{
+  "player": [
+    {
+      "name": "✿VZN✿ Neo",
+      "ssid": "76561198354513974",
+      "twitch": "vzn_neo"
+    },
+    {
+      "name": "✿VZN✿ BBoSom",
+      "ssid": "76561198835171517",
+      "twitch": "bbosom_",
+      "youtube": "UCd6ENct-AAupVDQ0EYqUgXQ"
+    },
+    {
+      "name": "SieR",
+      "ssid": "76561198320985763",
+      "twitch": "sier_vr"
+    },
+    {
+      "name": "Canis",
+      "ssid": "76561198004835698",
+      "twitch": "canis531"
+    },
+    {
+      "name": "skein",
+      "ssid": "76561198158040173",
+      "twitch": "smg0218"
+    },
+    {
+      "name": "Cho_Ri",
+      "ssid": "76561198033102987",
+      "twitch": "aochfl"
+    }
+  ]
+}

@@ -1,29 +1,36 @@
-{"player":[
-  {
-    "name": "SUI Sensei",
-    "ssid": "76561198357821968",
-    "twitch": "sui_sensei",
-    "youtube": "UC-KEGTtGEJCKwwVyZ1QCcjw",
-    "twitter": "xSUIx3"
-  },
-  {
-    "name": "ice cookie",
-    "ssid": "76561198362773238",
-    "twitch": "dldnjs842"
-  },
-  {
-    "name": "shabbang",
-    "ssid": "76561198220154913",
-    "twitch": "shabbang"
-  },
-  {
-    "name": "skein",
-    "ssid": "76561198158040173",
-    "twitch": "smg0218"
-  },
-  {
-    "name": "Ripeul",
-    "ssid": "76561198151185510",
-    "twitch": "ripeul2"
-  }
-]}
+{
+  "player": [
+    {
+      "name": "SUI Sensei",
+      "ssid": "76561198357821968",
+      "twitch": "sui_sensei",
+      "youtube": "UC-KEGTtGEJCKwwVyZ1QCcjw",
+      "twitter": "xSUIx3"
+    },
+    {
+      "name": "ice cookie",
+      "ssid": "76561198362773238",
+      "twitch": "dldnjs842"
+    },
+    {
+      "name": "shabbang",
+      "ssid": "76561198220154913",
+      "twitch": "shabbang"
+    },
+    {
+      "name": "skein",
+      "ssid": "76561198158040173",
+      "twitch": "smg0218"
+    },
+    {
+      "name": "Ripeul",
+      "ssid": "76561198151185510",
+      "twitch": "ripeul2"
+    },
+    {
+      "name": "(Overcow)",
+      "ssid": "76561198266949261",
+      "twitch": "wjdtkddn1219"
+    }
+  ]
+}

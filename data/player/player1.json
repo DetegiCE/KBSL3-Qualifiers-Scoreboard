@@ -1,62 +1,69 @@
-{"player":[
-  {
-    "name": "SUI Sensei",
-    "ssid": "76561198357821968",
-    "twitch": "sui_sensei",
-    "youtube": "UC-KEGTtGEJCKwwVyZ1QCcjw",
-    "twitter": "xSUIx3"
-  },
-  {
-    "name": "✿VZN✿ Neo",
-    "ssid": "76561198354513974",
-    "twitch": "vzn_neo"
-  },
-  {
-    "name": "✿VZN✿ BBoSom",
-    "ssid": "76561198835171517",
-    "twitch": "bbosom_",
-    "youtube": "UCd6ENct-AAupVDQ0EYqUgXQ"
-  },
-  {
-    "name": "SieR",
-    "ssid": "76561198320985763",
-    "twitch": "sier_vr"
-  },
-  {
-    "name": "ziga",
-    "ssid": "76561199201955544",
-    "twitch": "zigabyte1"
-  },
-  {
-    "name": "Canis",
-    "ssid": "76561198004835698",
-    "twitch": "canis531"
-  },
-  {
-    "name": "johadesu",
-    "ssid": "76561198825761961",
-    "twitch": "johadesu"
-  },
-  {
-    "name": "nint1749",
-    "ssid": "76561198404971763",
-    "twitch": "nind0ru"
-  },
-  {
-    "name": "izuna_1",
-    "ssid": "76561198084769056",
-    "twitch": "izuna_1",
-    "twitter": "Tizuna_1"
-  },
-  {
-    "name": "GF | CIH.",
-    "ssid": "76561198871178621",
-    "twitch": "cyan_sq"
-  },
-  {
-    "name": "Ganada0",
-    "ssid": "76561198375279971",
-    "twitch": "ganada0",
-    "youtube": "UCN2J6pIeDJtBnMq69_FpMCg"
-  }
-]}
+{
+  "player": [
+    {
+      "name": "SUI Sensei",
+      "ssid": "76561198357821968",
+      "twitch": "sui_sensei",
+      "youtube": "UC-KEGTtGEJCKwwVyZ1QCcjw",
+      "twitter": "xSUIx3"
+    },
+    {
+      "name": "✿VZN✿ Neo",
+      "ssid": "76561198354513974",
+      "twitch": "vzn_neo"
+    },
+    {
+      "name": "✿VZN✿ BBoSom",
+      "ssid": "76561198835171517",
+      "twitch": "bbosom_",
+      "youtube": "UCd6ENct-AAupVDQ0EYqUgXQ"
+    },
+    {
+      "name": "SieR",
+      "ssid": "76561198320985763",
+      "twitch": "sier_vr"
+    },
+    {
+      "name": "ziga",
+      "ssid": "76561199201955544",
+      "twitch": "zigabyte1"
+    },
+    {
+      "name": "Canis",
+      "ssid": "76561198004835698",
+      "twitch": "canis531"
+    },
+    {
+      "name": "johadesu",
+      "ssid": "76561198825761961",
+      "twitch": "johadesu"
+    },
+    {
+      "name": "nint1749",
+      "ssid": "76561198404971763",
+      "twitch": "nind0ru"
+    },
+    {
+      "name": "izuna_1",
+      "ssid": "76561198084769056",
+      "twitch": "izuna_1",
+      "twitter": "Tizuna_1"
+    },
+    {
+      "name": "GF | CIH.",
+      "ssid": "76561198871178621",
+      "twitch": "cyan_sq"
+    },
+    {
+      "name": "Ganada0",
+      "ssid": "76561198375279971",
+      "twitch": "ganada0",
+      "youtube": "UCN2J6pIeDJtBnMq69_FpMCg"
+    },
+    {
+      "name": "(Overcow)",
+      "ssid": "76561198266949261",
+      "twitch": "wjdtkddn1219"
+    }
+  ]
+}

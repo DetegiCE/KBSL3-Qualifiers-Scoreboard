@@ -1,44 +1,37 @@
 {"songs":[
   {
-    "name": "Ochame Kinou",
+    "name": "LINARIA",
     "diff": "E+",
     "code": "21c49",
-    "hash": "59C0ED6499593BDB41B4CF1A3054A731A43EABA4",
-    "note": 553
+    "hash": "0ebe643c47f1a625c3e8227ac0ece00a68997f78",
+    "note": 1780
   },
   {
-    "name": "ROCKSTAR(TAK Remix)",
+    "name": "Trinity Homerun",
     "diff": "E+",
-    "code": "1bbb6",
-    "hash": "161FFE6CD4D294A017184E9B3815FE22D797DE43",
-    "note": 1204
+    "code": "29d32",
+    "hash": "e4fdf162fd916ccfedce76e9cf9567f536d5e0a7",
+    "note": 2171
   },
   {
-    "name": "Yell For the Dream! Patissiere’ (Short ver)",
+    "name": "Killing Rhythm",
     "diff": "E+",
-    "code": "22471",
-    "hash": "688B87116E42C15403EF4B1E3E457BBB218FF2DE",
-    "note": 123
+    "code": "221e6",
+    "hash": "cb513119be7b8ba0b442b639b2c75ff94c3dccde",
+    "note": 2592
   },
   {
-    "name": "Muyaho",
-    "diff": "EX",
-    "code": "1506e",
-    "hash": "C6B6703476F167C44E4E4DC62394CC5021648D3B",
-    "note": 255
+    "name": "Sendan Life",
+    "diff": "E+",
+    "code": "1d1e6",
+    "hash": "9e0a594123bcf929fdb928e9d59cd7719f034d4b",
+    "note": 2318
   },
   {
-    "name": "Ferocious Battlefield",
+    "name": "᚛ᚄᚚᚓᚓᚇᚉᚑᚏᚓ᚜",
     "diff": "EX",
-    "code": "d2d2",
-    "hash": "D2C1DF884AB0CCFAD751839F11B851EAEBC39978",
-    "note": 484
-  },
-  {
-    "name": "In to the Night (ENG VER)",
-    "diff": "EX",
-    "code": "21fae",
-    "hash": "D586F053DC00E3A33017D32377F870DE8EE22B91",
-    "note": 1120
+    "code": "1e3ab",
+    "hash": "867042693e9362de37c05650e68dffc006d58f64",
+    "note": 623
   }
 ]}

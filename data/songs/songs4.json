@@ -1,0 +1,37 @@
+{"songs":[
+  {
+    "name": "Never Really Over",
+    "diff": "E+",
+    "code": "76ca",
+    "hash": "e98519e0ecce9b72d9d1bdbcc338e05d35b12bc6",
+    "note": 1323
+  },
+  {
+    "name": "Miracle",
+    "diff": "E+",
+    "code": "27c90",
+    "hash": "7f93a70ecada9d5eebf8892eec27ed4130d3e56e",
+    "note": 1104
+  },
+  {
+    "name": "ヒミツ feat. 可不",
+    "diff": "E+",
+    "code": "27b55",
+    "hash": "684af6c83a143512b529cb184b0d7ee0c714cd46",
+    "note": 724
+  },
+  {
+    "name": "Garakuta Doll Play",
+    "diff": "E+",
+    "code": "266b3",
+    "hash": "b9b64cee3ea925761a67880df7a5c07c6a09fb4f",
+    "note": 1144
+  },
+  {
+    "name": "Prometheus",
+    "diff": "E+",
+    "code": "27233",
+    "hash": "ef3825b088fde831bdd7ba465e86708e704ac7b2",
+    "note": 1967
+  }
+]}

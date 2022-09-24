@@ -1,19 +1,25 @@
 <!DOCTYPE html>
 <html lang="ko">
+
 <head>
     <meta charset="UTF-8">
     <title>예선 점수표</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.1/font/bootstrap-icons.css">
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+        crossorigin="anonymous"></script>
     <script src="https://detegice.github.io/KBSL3-Qualifiers-Scoreboard/js/html2canvas.js"></script>
     <script>
         var tag_name = '';
-        $(document).ready(function() {
+        $(document).ready(function () {
             var url = 'https://api.github.com/repos/DetegiCE/KBSL3-Qualifiers-Scoreboard/releases';
-            $.getJSON(url, function(data) {
+            $.getJSON(url, function (data) {
                 tag_name = data[0].tag_name;
                 var baseurl = 'https://cors-rbk.herokuapp.com/https://github.com/DetegiCE/KBSL3-Qualifiers-Scoreboard/releases/download/'
                 var score1 = baseurl + tag_name + '/scores1.json';
@@ -24,27 +30,27 @@
                 var head2 = 0;
                 var head3 = 0;
                 var head4 = 0;
-                var tag_date = new Date(Number(tag_name.substr(0, 4)), Number(tag_name.substr(4, 2))-1, Number(tag_name.substr(6, 2)), Number(tag_name.substr(8, 2)), Number(tag_name.substr(10, 2)), 0);
+                var tag_date = new Date(Number(tag_name.substr(0, 4)), Number(tag_name.substr(4, 2)) - 1, Number(tag_name.substr(6, 2)), Number(tag_name.substr(8, 2)), Number(tag_name.substr(10, 2)), 0);
                 tag_date.setHours(tag_date.getHours() + 9);
                 console.log(tag_date);
                 console.log(tag_name);
                 console.log(tag_date.getMonth());
-                $('#recdate').append(`${tag_date.getMonth()+1}월 ${tag_date.getDate()}일 ${tag_date.getHours()}시 ${tag_date.getMinutes()}분`);
+                $('#recdate').append(`${tag_date.getMonth() + 1}월 ${tag_date.getDate()}일 ${tag_date.getHours()}시 ${tag_date.getMinutes()}분`);
 
-                const rBadge = function(rank) {
-                    if(rank === 1) return '<span class="badge" style="background-color:#D5A11E; color:white">1</span>';
-                    else if(rank === 2) return '<span class="badge" style="background-color:#A3A3A3; color:white">2</span>';
-                    else if(rank === 3) return '<span class="badge" style="background-color:#CD7F32; color:white">3</span>';
-                    else if(rank === 4) return '<span class="badge" style="background-color:#FF9900; color:white">4</span>';
+                const rBadge = function (rank) {
+                    if (rank === 1) return '<span class="badge" style="background-color:#D5A11E; color:white">1</span>';
+                    else if (rank === 2) return '<span class="badge" style="background-color:#A3A3A3; color:white">2</span>';
+                    else if (rank === 3) return '<span class="badge" style="background-color:#CD7F32; color:white">3</span>';
+                    else if (rank === 4) return '<span class="badge" style="background-color:#FF9900; color:white">4</span>';
                     else return `<span class="badge bg-secondary" style="color:white">${rank}</span>`;
                 }
 
                 $.ajax({
                     dataType: 'json',
                     url: score1,
-                    success: function(data) {
+                    success: function (data) {
                         console.log(data);
-                        data.player.sort(function(a, b) {
+                        data.player.sort(function (a, b) {
                             var pool = ['28a4c', '28a2d', '2803c', '1f9f6', '202d2'];
                             var asum = 0;
                             var bsum = 0;
@@ -55,27 +61,27 @@
                             return asum > bsum ? -1 : asum < bsum ? 1 : 0;
                         });
                         var count8 = 0;
-                        data.player.forEach(function(elem) {
+                        data.player.forEach(function (elem) {
                             var appendString = `<tr style="width: inherit">
                                 <th scope="row" class="ssid"><a href="https://scoresaber.com/u/${elem['ssid']}">${elem['name']}</a> <a href="https://www.twitch.tv/${elem['twitch']}" style="color: #6441a5"><i class="bi bi-twitch"></i></a>`;
-                            if(elem.hasOwnProperty('youtube')) {
+                            if (elem.hasOwnProperty('youtube')) {
                                 appendString += ` <a href="https://www.youtube.com/channel/${elem['youtube']}" style="color: #c4302b"><i class="bi bi-youtube"></i></a>`;
                             }
-                            if(elem.hasOwnProperty('twitter')) {
+                            if (elem.hasOwnProperty('twitter')) {
                                 appendString += ` <a href="https://twitter.com/${elem['twitter']}" style="color: #1DA1F2"><i class="bi bi-twitter"></i></a>`;
                             }
                             appendString += '</th>';
-                            
+
                             var pool = ['28a4c', '28a2d', '2803c', '1f9f6', '202d2'];
                             var scoreSum = 0;
                             pool.forEach(p => {
-                                appendString += `<td class="song">${elem[p].toFixed(3)} ${rBadge(elem[p+'R'])}</td>`;
+                                appendString += `<td class="song">${elem[p].toFixed(3)} ${rBadge(elem[p + 'R'])}</td>`;
                                 scoreSum += elem[p];
                             });
-                            appendString += `<td class="sum">${scoreSum.toFixed(3)}<br>(Avg. ${(scoreSum/6).toFixed(3)})</td></tr>`;
+                            appendString += `<td class="sum">${scoreSum.toFixed(3)}<br>(Avg. ${(scoreSum / 6).toFixed(3)})</td></tr>`;
                             $('#goon1').append(appendString);
                             count8++;
-                            if(count8 === 8) {
+                            if (count8 === 8) {
                                 $('#goon1').append(`<tr>
                                 <th scope="row" colspan="7" style="text-align: center; background: linear-gradient(to right, #ffffff, #cc0000, #ffffff); color: white">본선 진출 컷</th>
                                 </tr>`)
@@ -86,7 +92,7 @@
                         head3 = Math.max($("#head3").offset().top, head3);
                         head4 = Math.max($("#head4").offset().top, head4);
                     },
-                    error: function(data) {
+                    error: function (data) {
                         console.log(data);
                     }
                 });
@@ -94,9 +100,9 @@
                 $.ajax({
                     dataType: 'json',
                     url: score2,
-                    success: function(data) {
+                    success: function (data) {
                         console.log(data);
-                        data.player.sort(function(a, b) {
+                        data.player.sort(function (a, b) {
                             var pool = ['27eee', '1b890', '271a6', '22513', '57ed'];
                             var asum = 0;
                             var bsum = 0;
@@ -107,27 +113,27 @@
                             return asum > bsum ? -1 : asum < bsum ? 1 : 0;
                         });
                         var count4 = 0;
-                        data.player.forEach(function(elem) {
+                        data.player.forEach(function (elem) {
                             var appendString = `<tr style="width: inherit">
                                 <th scope="row" class="ssid"><a href="https://scoresaber.com/u/${elem['ssid']}">${elem['name']}</a> <a href="https://www.twitch.tv/${elem['twitch']}" style="color: #6441a5"><i class="bi bi-twitch"></i></a>`;
-                            if(elem.hasOwnProperty('youtube')) {
+                            if (elem.hasOwnProperty('youtube')) {
                                 appendString += ` <a href="https://www.youtube.com/channel/${elem['youtube']}" style="color: #c4302b"><i class="bi bi-youtube"></i></a>`;
                             }
-                            if(elem.hasOwnProperty('twitter')) {
+                            if (elem.hasOwnProperty('twitter')) {
                                 appendString += ` <a href="https://twitter.com/${elem['twitter']}" style="color: #1DA1F2"><i class="bi bi-twitter"></i></a>`;
                             }
                             appendString += '</th>';
-                            
+
                             var pool = ['27eee', '1b890', '271a6', '22513', '57ed'];
                             var scoreSum = 0;
                             pool.forEach(p => {
-                                appendString += `<td class="song">${elem[p].toFixed(3)} ${rBadge(elem[p+'R'])}</td>`;
+                                appendString += `<td class="song">${elem[p].toFixed(3)} ${rBadge(elem[p + 'R'])}</td>`;
                                 scoreSum += elem[p];
                             });
-                            appendString += `<td class="sum">${scoreSum.toFixed(3)}<br>(Avg. ${(scoreSum/6).toFixed(3)})</td></tr>`;
+                            appendString += `<td class="sum">${scoreSum.toFixed(3)}<br>(Avg. ${(scoreSum / 6).toFixed(3)})</td></tr>`;
                             $('#goon2').append(appendString);
                             count4++;
-                            if(count4 === 4) {
+                            if (count4 === 4) {
                                 $('#goon2').append(`<tr>
                                 <th scope="row" colspan="7" style="text-align: center; background: linear-gradient(to right, #ffffff, #cc0000, #ffffff); color: white">본선 진출 컷</th>
                                 </tr>`)
@@ -138,7 +144,7 @@
                         head3 = Math.max($("#head3").offset().top, head3);
                         head4 = Math.max($("#head4").offset().top, head4);
                     },
-                    error: function(data) {
+                    error: function (data) {
                         console.log(data);
                     }
                 });
@@ -146,9 +152,9 @@
                 $.ajax({
                     dataType: 'json',
                     url: score3,
-                    success: function(data) {
+                    success: function (data) {
                         console.log(data);
-                        data.player.sort(function(a, b) {
+                        data.player.sort(function (a, b) {
                             var pool = ['289c2', '29d32', '221e6', '1d1e6', '1e3ab'];
                             var asum = 0;
                             var bsum = 0;
@@ -159,27 +165,27 @@
                             return asum > bsum ? -1 : asum < bsum ? 1 : 0;
                         });
                         var count4 = 0;
-                        data.player.forEach(function(elem) {
+                        data.player.forEach(function (elem) {
                             var appendString = `<tr style="width: inherit">
                                 <th scope="row" class="ssid"><a href="https://scoresaber.com/u/${elem['ssid']}">${elem['name']}</a> <a href="https://www.twitch.tv/${elem['twitch']}" style="color: #6441a5"><i class="bi bi-twitch"></i></a>`;
-                            if(elem.hasOwnProperty('youtube')) {
+                            if (elem.hasOwnProperty('youtube')) {
                                 appendString += ` <a href="https://www.youtube.com/channel/${elem['youtube']}" style="color: #c4302b"><i class="bi bi-youtube"></i></a>`;
                             }
-                            if(elem.hasOwnProperty('twitter')) {
+                            if (elem.hasOwnProperty('twitter')) {
                                 appendString += ` <a href="https://twitter.com/${elem['twitter']}" style="color: #1DA1F2"><i class="bi bi-twitter"></i></a>`;
                             }
                             appendString += '</th>';
-                            
+
                             var pool = ['289c2', '29d32', '221e6', '1d1e6', '1e3ab'];
                             var scoreSum = 0;
                             pool.forEach(p => {
-                                appendString += `<td class="song">${elem[p].toFixed(3)} ${rBadge(elem[p+'R'])}</td>`;
+                                appendString += `<td class="song">${elem[p].toFixed(3)} ${rBadge(elem[p + 'R'])}</td>`;
                                 scoreSum += elem[p];
                             });
-                            appendString += `<td class="sum">${scoreSum.toFixed(3)}<br>(Avg. ${(scoreSum/6).toFixed(3)})</td></tr>`;
+                            appendString += `<td class="sum">${scoreSum.toFixed(3)}<br>(Avg. ${(scoreSum / 6).toFixed(3)})</td></tr>`;
                             $('#goon3').append(appendString);
                             count4++;
-                            if(count4 === 4) {
+                            if (count4 === 4) {
                                 $('#goon3').append(`<tr>
                                 <th scope="row" colspan="7" style="text-align: center; background: linear-gradient(to right, #ffffff, #cc0000, #ffffff); color: white">본선 진출 컷</th>
                                 </tr>`)
@@ -190,18 +196,18 @@
                         head3 = Math.max($("#head3").offset().top, head3);
                         head4 = Math.max($("#head4").offset().top, head4);
                     },
-                    error: function(data) {
+                    error: function (data) {
                         console.log(data);
                     }
                 });
-                
+
                 $.ajax({
                     dataType: 'json',
                     url: score4,
-                    success: function(data) {
+                    success: function (data) {
                         console.log(data);
-                        data.player.sort(function(a, b) {
-                            var pool = ['76ca', '27c90', '27b55', '266b3', '27233'];
+                        data.player.sort(function (a, b) {
+                            var pool = ['76ca', '1ed57', '27b55', '266b3', '27233'];
                             var asum = 0;
                             var bsum = 0;
                             pool.forEach(p => {
@@ -211,28 +217,28 @@
                             return asum > bsum ? -1 : asum < bsum ? 1 : 0;
                         });
                         var count4 = 0;
-                        data.player.forEach(function(elem) {
+                        data.player.forEach(function (elem) {
                             console.log(elem);
                             var appendString = `<tr style="width: inherit">
                                 <th scope="row" class="ssid"><a href="https://scoresaber.com/u/${elem['ssid']}">${elem['name']}</a> <a href="https://www.twitch.tv/${elem['twitch']}" style="color: #6441a5"><i class="bi bi-twitch"></i></a>`;
-                            if(elem.hasOwnProperty('youtube')) {
+                            if (elem.hasOwnProperty('youtube')) {
                                 appendString += ` <a href="https://www.youtube.com/channel/${elem['youtube']}" style="color: #c4302b"><i class="bi bi-youtube"></i></a>`;
                             }
-                            if(elem.hasOwnProperty('twitter')) {
+                            if (elem.hasOwnProperty('twitter')) {
                                 appendString += ` <a href="https://twitter.com/${elem['twitter']}" style="color: #1DA1F2"><i class="bi bi-twitter"></i></a>`;
                             }
                             appendString += '</th>';
-                            
+
                             var pool = ['76ca', '1ed57', '27b55', '266b3', '27233'];
                             var scoreSum = 0;
                             pool.forEach(p => {
-                                appendString += `<td class="song">${elem[p].toFixed(3)} ${rBadge(elem[p+'R'])}</td>`;
+                                appendString += `<td class="song">${elem[p].toFixed(3)} ${rBadge(elem[p + 'R'])}</td>`;
                                 scoreSum += elem[p];
                             });
-                            appendString += `<td class="sum">${scoreSum.toFixed(3)}<br>(Avg. ${(scoreSum/6).toFixed(3)})</td></tr>`;
+                            appendString += `<td class="sum">${scoreSum.toFixed(3)}<br>(Avg. ${(scoreSum / 6).toFixed(3)})</td></tr>`;
                             $('#goon4').append(appendString);
                             count4++;
-                            if(count4 === 4) {
+                            if (count4 === 4) {
                                 $('#goon4').append(`<tr>
                                 <th scope="row" colspan="7" style="text-align: center; background: linear-gradient(to right, #ffffff, #cc0000, #ffffff); color: white">본선 진출 컷</th>
                                 </tr>`)
@@ -243,36 +249,36 @@
                         head3 = Math.max($("#head3").offset().top, head3);
                         head4 = Math.max($("#head4").offset().top, head4);
                     },
-                    error: function(data) {
+                    error: function (data) {
                         console.log(data);
                     }
                 });
-                
+
                 var h1 = $("#head1").height();
                 var h2 = $("#head2").height();
                 var h3 = $("#head3").height();
                 var h4 = $("#head4").height();
-                $(window).scroll(function() {
+                $(window).scroll(function () {
                     var window = $(this).scrollTop();
-                    if(head1-h1 <= window && window <= head2-h2) {
+                    if (head1 - h1 <= window && window <= head2 - h2) {
                         $("#head1").addClass("fixed");
                         $("#head2").removeClass("fixed");
                         $("#head3").removeClass("fixed");
                         $("#head4").removeClass("fixed");
                     }
-                    else if(head2-h2 <= window && window <= head3-h3) {
+                    else if (head2 - h2 <= window && window <= head3 - h3) {
                         $("#head2").addClass("fixed");
                         $("#head1").removeClass("fixed");
                         $("#head3").removeClass("fixed");
                         $("#head4").removeClass("fixed");
                     }
-                    else if(head3-h3 <= window && window <= head4-h4) {
+                    else if (head3 - h3 <= window && window <= head4 - h4) {
                         $("#head3").addClass("fixed");
                         $("#head2").removeClass("fixed");
                         $("#head1").removeClass("fixed");
                         $("#head4").removeClass("fixed");
                     }
-                    else if(head4-h4 <= window) {
+                    else if (head4 - h4 <= window) {
                         $("#head4").addClass("fixed");
                         $("#head1").removeClass("fixed");
                         $("#head2").removeClass("fixed");
@@ -294,7 +300,7 @@
             div = div[0];
             var recp = document.getElementById('recentupdate').innerText;
             div.append(`${recp}`);
-            html2canvas(div).then(function(canvas) {
+            html2canvas(div).then(function (canvas) {
                 var myImg = canvas.toDataURL();
                 downloadURI(myImg, "rank.png");
             }).then(div.removeChild(div.lastChild));
@@ -313,122 +319,136 @@
             padding: 5px;
             overflow-y: auto;
         }
+
         .ssid {
             width: 12%;
         }
+
         .song {
             width: 15%;
         }
+
         .sum {
             width: 13%;
         }
+
         #head1.fixed {
             position: fixed;
             top: 0;
         }
+
         #head2.fixed {
             position: fixed;
             top: 0;
         }
+
         #head3.fixed {
             position: fixed;
             top: 0;
         }
+
         #head4.fixed {
             position: fixed;
             top: 0;
         }
-        #head1, #head2, #head3, #head4 {
+
+        #head1,
+        #head2,
+        #head3,
+        #head4 {
             background-color: white;
         }
     </style>
 </head>
-<body>
-<div class="save_btn">
-    <button type="button" class="btn btn-primary" onclick="PrintDiv($('#container'));">전체 저장</button>
-    <button type="button" class="btn btn-danger" onclick="PrintDiv($('#goon1div'));">TECH 저장</button>
-    <button type="button" class="btn btn-success" onclick="PrintDiv($('#goon2div'));">ACC 저장</button>
-    <button type="button" class="btn btn-secondary" onclick="PrintDiv($('#goon3div'));">SPEED 저장</button>
-    <button type="button" class="btn btn-warning" onclick="PrintDiv($('#goon4div'));">시니어 저장</button>
-</div>
-<div id="container">
-    <h1>제 3회 전자칼잽이 대회 예선 점수판</h1>
-    <p id="recentupdate">최근 갱신 일시: <span id="recdate"></span></p>
-    <div>
-        <a href="https://bsckorea.github.io/2022/08/27/Korea-BeatSaber-League-3.html">대회 공지사항 페이지 바로가기</a> | <a href="https://discord.gg/SEFBZrG">한국 비트세이버 커뮤니티 바로가기</a>
-    </div>
-    <hr>
-    <div id="goon1div">
-        <h2>TECH</h2>
-        <hr>
-        <table id="head1" class="theader" style="width: 100%">
-            <tr>
-                <th scope="col" class="ssid">TECH</th>
-                <th scope="col" class="song">God-ish</th>
-                <th scope="col" class="song">Perfect Pitch</th>
-                <th scope="col" class="song">Ready to</th>
-                <th scope="col" class="song">Heracles</th>
-                <th scope="col" class="song">Clip it Bro</th>
-                <th scope="col" class="sum">합계</th>
-            </tr>
-        </table>
-        <table id="goon1" class="tbodys" style="width: 100%">
-        </table>
-    </div>
-    <div id="goon2div">
-        <h2>ACC</h2>
-        <hr>
-        <table id="head2" class="theader" style="width: 100%">
-            <tr>
-                <th scope="col" class="ssid">ACC</th>
-                <th scope="col" class="song">Brain Power</th>
-                <th scope="col" class="song">Cinderella</th>
-                <th scope="col" class="song">Phony</th>
-                <th scope="col" class="song">Autonomy</th>
-                <th scope="col" class="song">Ai no Sukima</th>
-                <th scope="col" class="sum">합계</th>
-            </tr>
-        </table>
-        <table id="goon2" class="tbodys" style="width: 100%">
-        </table>
-    </div>
-    <div id="goon3div">
-        <h2>SPEED</h2>
-        <hr>
-        <table id="head3" class="theader" style="width: 100%">
-            <tr>
-                <th scope="col" class="ssid">SPEED</th>
-                <th scope="col" class="song">LINARIA</th>
-                <th scope="col" class="song">Trinity Homerun</th>
-                <th scope="col" class="song">Killing Rhythm</th>
-                <th scope="col" class="song">Sendan Life</th>
-                <th scope="col" class="song">᚛ᚄᚚᚓᚓᚇᚉᚑᚏᚓ᚜</th>
-                <th scope="col" class="sum">합계</th>
-            </tr>
-        </table>
-        <table id="goon3" class="tbodys" style="width: 100%">
-        </table>
-    </div>
-    <div id="goon4div">
-        <h2>시니어</h2>
-        <hr>
-        <table id="head4" class="theader" style="width: 100%">
-            <tr>
-                <th scope="col" class="ssid">시니어</th>
-                <th scope="col" class="song">Never Really Over</th>
-                <th scope="col" class="song">Target for love</th>
-                <th scope="col" class="song">ヒミツ feat. 可不</th>
-                <th scope="col" class="song">Gararkuta Doll Play</th>
-                <th scope="col" class="song">Prometheus</th>
-                <th scope="col" class="sum">합계</th>
-            </tr>
-        </table>
-        <table id="goon4" class="tbodys" style="width: 100%">
-        </table>
-    </div>
-</div>
 
-<script>
-</script>
+<body>
+    <div class="save_btn">
+        <button type="button" class="btn btn-primary" onclick="PrintDiv($('#container'));">전체 저장</button>
+        <button type="button" class="btn btn-danger" onclick="PrintDiv($('#goon1div'));">TECH 저장</button>
+        <button type="button" class="btn btn-success" onclick="PrintDiv($('#goon2div'));">ACC 저장</button>
+        <button type="button" class="btn btn-secondary" onclick="PrintDiv($('#goon3div'));">SPEED 저장</button>
+        <button type="button" class="btn btn-warning" onclick="PrintDiv($('#goon4div'));">시니어 저장</button>
+    </div>
+    <div id="container">
+        <h1>제 3회 전자칼잽이 대회 예선 점수판</h1>
+        <p id="recentupdate">최근 갱신 일시: <span id="recdate"></span></p>
+        <div>
+            <a href="https://bsckorea.github.io/2022/08/27/Korea-BeatSaber-League-3.html">대회 공지사항 페이지 바로가기</a> | <a
+                href="https://discord.gg/SEFBZrG">한국 비트세이버 커뮤니티 바로가기</a>
+        </div>
+        <hr>
+        <div id="goon1div">
+            <h2>TECH</h2>
+            <hr>
+            <table id="head1" class="theader" style="width: 100%">
+                <tr>
+                    <th scope="col" class="ssid">TECH</th>
+                    <th scope="col" class="song">God-ish</th>
+                    <th scope="col" class="song">Perfect Pitch</th>
+                    <th scope="col" class="song">Ready to</th>
+                    <th scope="col" class="song">Heracles</th>
+                    <th scope="col" class="song">Clip it Bro</th>
+                    <th scope="col" class="sum">합계</th>
+                </tr>
+            </table>
+            <table id="goon1" class="tbodys" style="width: 100%">
+            </table>
+        </div>
+        <div id="goon2div">
+            <h2>ACC</h2>
+            <hr>
+            <table id="head2" class="theader" style="width: 100%">
+                <tr>
+                    <th scope="col" class="ssid">ACC</th>
+                    <th scope="col" class="song">Brain Power</th>
+                    <th scope="col" class="song">Cinderella</th>
+                    <th scope="col" class="song">Phony</th>
+                    <th scope="col" class="song">Autonomy</th>
+                    <th scope="col" class="song">Ai no Sukima</th>
+                    <th scope="col" class="sum">합계</th>
+                </tr>
+            </table>
+            <table id="goon2" class="tbodys" style="width: 100%">
+            </table>
+        </div>
+        <div id="goon3div">
+            <h2>SPEED</h2>
+            <hr>
+            <table id="head3" class="theader" style="width: 100%">
+                <tr>
+                    <th scope="col" class="ssid">SPEED</th>
+                    <th scope="col" class="song">LINARIA</th>
+                    <th scope="col" class="song">Trinity Homerun</th>
+                    <th scope="col" class="song">Killing Rhythm</th>
+                    <th scope="col" class="song">Sendan Life</th>
+                    <th scope="col" class="song">᚛ᚄᚚᚓᚓᚇᚉᚑᚏᚓ᚜</th>
+                    <th scope="col" class="sum">합계</th>
+                </tr>
+            </table>
+            <table id="goon3" class="tbodys" style="width: 100%">
+            </table>
+        </div>
+        <div id="goon4div">
+            <h2>시니어</h2>
+            <hr>
+            <table id="head4" class="theader" style="width: 100%">
+                <tr>
+                    <th scope="col" class="ssid">시니어</th>
+                    <th scope="col" class="song">Never Really Over</th>
+                    <th scope="col" class="song">Target for love</th>
+                    <th scope="col" class="song">ヒミツ feat. 可不</th>
+                    <th scope="col" class="song">Gararkuta Doll Play</th>
+                    <th scope="col" class="song">Prometheus</th>
+                    <th scope="col" class="sum">합계</th>
+                </tr>
+            </table>
+            <table id="goon4" class="tbodys" style="width: 100%">
+            </table>
+        </div>
+    </div>
+
+    <script>
+    </script>
 </body>
+
 </html>

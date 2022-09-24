@@ -1,0 +1,44 @@
+{"songs":[
+  {
+    "name": "Butterfly Twist",
+    "diff": "E+",
+    "code": "1f85c",
+    "hash": "38A0DB95ECE137BFB84BEA8A3B3B30EF87FE2E2D",
+    "note": 752
+  },
+  {
+    "name": "T+ VS SHARK",
+    "diff": "E+",
+    "code": "1cf6f",
+    "hash": "1C33B5EE2705BBF2413083E4E0C8106D5DDD3C1C",
+    "note": 1394
+  },
+  {
+    "name": "Brain Power",
+    "diff": "E+",
+    "code": "228a0",
+    "hash": "48327D90A5FB4F10CD9179A1A6FAB4B98C93C043",
+    "note": 930
+  },
+  {
+    "name": "Climax (Kobaryo’s FTN-Remix)",
+    "diff": "E+",
+    "code": "1f0de",
+    "hash": "DC783478A69714D8A8BCD53971ABC508F5548AA4",
+    "note": 1611
+  },
+  {
+    "name": "Faithful dog \"Hachi\"",
+    "diff": "E+",
+    "code": "1be93",
+    "hash": "A26E443968DE00A26B5D8489DCA2257DF784AA0B",
+    "note": 877
+  },
+  {
+    "name": "Date 2 (From \"Your Name\")",
+    "diff": "HD",
+    "code": "2215c",
+    "hash": "61030B4AE4B29853B8F58269E99B9D8BAEFCFDA6",
+    "note": 275
+  }
+]}

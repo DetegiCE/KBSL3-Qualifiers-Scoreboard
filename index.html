@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>예선 점수표</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    <script src="https://detegice.github.io/KBL2-Qualifers-Scoreboard/js/html2canvas.js"></script>
+    <script>
+        var tag_name = '';
+        $(document).ready(function() {
+            var url = 'https://api.github.com/repos/DetegiCE/KBL2-Qualifers-Scoreboard/releases';
+            $.getJSON(url, function(data) {
+                tag_name = data[0].tag_name;
+                var baseurl = 'https://cors-rbk.herokuapp.com/https://github.com/DetegiCE/KBL2-Qualifers-Scoreboard/releases/download/'
+                var score1 = baseurl + tag_name + '/scores1.json';
+                var score2 = baseurl + tag_name + '/scores2.json';
+                var score3 = baseurl + tag_name + '/scores3.json';
+                var head1 = 0;
+                var head2 = 0;
+                var head3 = 0;
+                var tag_date = new Date(Number(tag_name.substr(0, 4)), Number(tag_name.substr(4, 2))-1, Number(tag_name.substr(6, 2)), Number(tag_name.substr(8, 2)), Number(tag_name.substr(10, 2)), 0);
+                tag_date.setHours(tag_date.getHours() + 9);
+                console.log(tag_date);
+                console.log(tag_name);
+                console.log(tag_date.getMonth());
+                $('#recdate').append(`${tag_date.getMonth()+1}월 ${tag_date.getDate()}일 ${tag_date.getHours()}시 ${tag_date.getMinutes()}분`);
+
+                const rBadge = function(rank) {
+                    if(rank === 1) return '<span class="badge" style="background-color:#D5A11E; color:white">1</span>';
+                    else if(rank === 2) return '<span class="badge" style="background-color:#A3A3A3; color:white">2</span>';
+                    else if(rank === 3) return '<span class="badge" style="background-color:#CD7F32; color:white">3</span>';
+                    else return `<span class="badge bg-secondary" style="color:white">${rank}</span>`;
+                }
+
+                $.ajax({
+                    dataType: 'json',
+                    url: score1,
+                    success: function(data) {
+                        console.log(data);
+                        data.player.sort(function(a, b) {
+                           var asum = a['1f85c']+a['1cf6f']+a['228a0']+a['1f0de']+a['1be93']+a['2215c'];
+                           var bsum = b['1f85c']+b['1cf6f']+b['228a0']+b['1f0de']+b['1be93']+b['2215c'];
+                           return asum > bsum ? -1 : asum < bsum ? 1 : 0;
+                        });
+                        var count8 = 0;
+                        data.player.forEach(function(elem) {
+                            $('#goon1').append(`<tr style="width: inherit">
+                                <th scope="row" class="ssid"><a href="https://scoresaber.com/u/${elem['ssid']}">${elem['name']}</a></th>
+                                <td class="song">${elem['1f85c'].toFixed(3)} ${rBadge(elem['1f85cR'])}</td>
+                                <td class="song">${elem['1cf6f'].toFixed(3)} ${rBadge(elem['1cf6fR'])}</td>
+                                <td class="song">${elem['228a0'].toFixed(3)} ${rBadge(elem['228a0R'])}</td>
+                                <td class="song">${elem['1f0de'].toFixed(3)} ${rBadge(elem['1f0deR'])}</td>
+                                <td class="song">${elem['1be93'].toFixed(3)} ${rBadge(elem['1be93R'])}</td>
+                                <td class="song">${elem['2215c'].toFixed(3)} ${rBadge(elem['2215cR'])}</td>
+                                <td class="sum">${(elem['1f85c']+elem['1cf6f']+elem['228a0']+elem['1f0de']+elem['1be93']+elem['2215c']).toFixed(3)}<br>(Avg. ${((elem['1f85c']+elem['1cf6f']+elem['228a0']+elem['1f0de']+elem['1be93']+elem['2215c'])/6).toFixed(3)})</td>
+                                </tr>`);
+                            count8++;
+                            if(count8 === 8) {
+                                $('#goon1').append(`<tr>
+                                <th scope="row" colspan="8" style="text-align: center; background: linear-gradient(to right, #ffffff, #cc0000, #ffffff); color: white">본선 진출 컷</th>
+                                </tr>`)
+                            }
+                        });
+                        head1 = Math.max($("#head1").offset().top, head1);
+                        head2 = Math.max($("#head2").offset().top, head2);
+                        head3 = Math.max($("#head3").offset().top, head3);
+                    },
+                    error: function(data) {
+                        console.log(data);
+                    }
+                });
+                $.ajax({
+                    dataType: 'json',
+                    url: score2,
+                    success: function(data) {
+                        data.player.sort(function(a, b) {
+                            var asum = a['1a994']+a['1efae']+a['13de6']+a['d46b']+a['d485']+a['197d4'];
+                            var bsum = b['1a994']+b['1efae']+b['13de6']+b['d46b']+b['d485']+b['197d4'];
+                            return asum > bsum ? -1 : asum < bsum ? 1 : 0;
+                        });
+                        var count8 = 0;
+                        data.player.forEach(function(elem) {
+                            $('#goon2').append(`<tr style="width: inherit">
+                                <th scope="row" class="ssid" ><a href="https://scoresaber.com/u/${elem['ssid']}">${elem['name']}</a></th>
+                                <td class="song">${elem['1a994'].toFixed(3)} ${rBadge(elem['1a994R'])}</td>
+                                <td class="song">${elem['1efae'].toFixed(3)} ${rBadge(elem['1efaeR'])}</td>
+                                <td class="song">${elem['13de6'].toFixed(3)} ${rBadge(elem['13de6R'])}</td>
+                                <td class="song">${elem['d46b'].toFixed(3)} ${rBadge(elem['d46bR'])}</td>
+                                <td class="song">${elem['d485'].toFixed(3)} ${rBadge(elem['d485R'])}</td>
+                                <td class="song">${elem['197d4'].toFixed(3)} ${rBadge(elem['197d4R'])}</td>
+                                <td class="sum">${(elem['1a994']+elem['1efae']+elem['13de6']+elem['d46b']+elem['d485']+elem['197d4']).toFixed(3)}<br>(Avg. ${((elem['1a994']+elem['1efae']+elem['13de6']+elem['d46b']+elem['d485']+elem['197d4'])/6).toFixed(3)})</td>
+                                </tr>`);
+                            count8++;
+                            if(count8 === 8) {
+                                $('#goon2').append(`<tr>
+                                <th scope="row" colspan="8" style="text-align: center; background: linear-gradient(to right, #ffffff, #cc0000, #ffffff); color: white">본선 진출 컷</th>
+                                </tr>`)
+                            }
+                        });
+                        head1 = Math.max($("#head1").offset().top, head1);
+                        head2 = Math.max($("#head2").offset().top, head2);
+                        head3 = Math.max($("#head3").offset().top, head3);
+                    },
+                    error: function(data) {
+                        console.log(data);
+                    }
+                });
+                $.ajax({
+                    dataType: 'json',
+                    url: score3,
+                    success: function(data) {
+                        data.player.sort(function(a, b) {
+                            var asum = a['21c49']+a['1bbb6']+a['22471']+a['1506e']+a['d2d2']+a['21fae'];
+                            var bsum = b['21c49']+b['1bbb6']+b['22471']+b['1506e']+b['d2d2']+b['21fae'];
+                            return asum > bsum ? -1 : asum < bsum ? 1 : 0;
+                        });
+                        var count8 = 0;
+                        data.player.forEach(function(elem) {
+                            $('#goon3').append(`<tr style="width: inherit">
+                                <th scope="row" class="ssid"><a href="https://scoresaber.com/u/${elem['ssid']}">${elem['name']}</a></th>
+                                <td class="song">${elem['21c49'].toFixed(3)} ${rBadge(elem['21c49R'])}</td>
+                                <td class="song">${elem['1bbb6'].toFixed(3)} ${rBadge(elem['1bbb6R'])}</td>
+                                <td class="song">${elem['22471'].toFixed(3)} ${rBadge(elem['22471R'])}</td>
+                                <td class="song">${elem['1506e'].toFixed(3)} ${rBadge(elem['1506eR'])}</td>
+                                <td class="song">${elem['d2d2'].toFixed(3)} ${rBadge(elem['d2d2R'])}</td>
+                                <td class="song">${elem['21fae'].toFixed(3)} ${rBadge(elem['21faeR'])}</td>
+                                <td class="sum">${(elem['21c49']+elem['1bbb6']+elem['22471']+elem['1506e']+elem['d2d2']+elem['21fae']).toFixed(3)}<br>(Avg. ${((elem['21c49']+elem['1bbb6']+elem['22471']+elem['1506e']+elem['d2d2']+elem['21fae'])/6).toFixed(3)})</td>
+                                </tr>`);
+                            count8++;
+                            if(count8 === 8) {
+                                $('#goon3').append(`<tr>
+                                <th scope="row" colspan="8" style="text-align: center; background: linear-gradient(to right, #ffffff, #cc0000, #ffffff); color: white">본선 진출 컷</th>
+                                </tr>`)
+                            }
+                        });
+                        head1 = Math.max($("#head1").offset().top, head1);
+                        head2 = Math.max($("#head2").offset().top, head2);
+                        head3 = Math.max($("#head3").offset().top, head3);
+                    },
+                    error: function(data) {
+                        console.log(data);
+                    }
+                });
+
+                var h1 = $("#head1").height();
+                var h2 = $("#head2").height();
+                var h3 = $("#head3").height();
+                $(window).scroll(function() {
+                    var window = $(this).scrollTop();
+                    if(head1-h1 <= window && window <= head2-h2) {
+                        $("#head1").addClass("fixed");
+                        $("#head2").removeClass("fixed");
+                        $("#head3").removeClass("fixed");
+                    }
+                    else if(head2-h2 <= window && window <= head3-h3) {
+                        $("#head2").addClass("fixed");
+                        $("#head1").removeClass("fixed");
+                        $("#head3").removeClass("fixed");
+                    }
+                    else if(head3-h3 <= window) {
+                        $("#head3").addClass("fixed");
+                        $("#head2").removeClass("fixed");
+                        $("#head1").removeClass("fixed");
+                    }
+                    else {
+                        $("#head3").removeClass("fixed");
+                        $("#head2").removeClass("fixed");
+                        $("#head1").removeClass("fixed");
+
+                    }
+                });
+
+
+            });
+        });
+
+        function PrintDiv(div) {
+            div = div[0];
+            var recp = document.getElementById('recentupdate').innerText;
+            div.append(`${recp}`);
+            html2canvas(div).then(function(canvas) {
+                var myImg = canvas.toDataURL();
+                downloadURI(myImg, "rank.png");
+            }).then(div.removeChild(div.lastChild));
+        }
+
+        function downloadURI(uri, name) {
+            var link = document.createElement('a');
+            link.download = name;
+            link.href = uri;
+            document.body.appendChild(link);
+            link.click();
+        }
+    </script>
+    <style>
+        #container {
+            padding: 5px;
+            overflow-y: auto;
+        }
+        .ssid {
+            width: 11%;
+        }
+        .song {
+            width: 13%;
+        }
+        .sum {
+            width: 11%;
+        }
+        #head1.fixed {
+            position: fixed;
+            top: 0;
+        }
+        #head2.fixed {
+            position: fixed;
+            top: 0;
+        }
+        #head3.fixed {
+            position: fixed;
+            top: 0;
+        }
+        #head1, #head2, #head3 {
+            background-color: white;
+        }
+    </style>
+</head>
+<body>
+<div class="save_btn">
+    <button type="button" class="btn btn-primary" onclick="PrintDiv($('#container'));">전체 저장</button>
+    <button type="button" class="btn btn-danger" onclick="PrintDiv($('#goon1div'));">1군 저장</button>
+    <button type="button" class="btn btn-success" onclick="PrintDiv($('#goon2div'));">2군 저장</button>
+    <button type="button" class="btn btn-secondary" onclick="PrintDiv($('#goon3div'));">3군 저장</button>
+</div>
+<div id="container">
+    <h1>제2회 전자칼잽이 대회 예선 점수판</h1>
+    <p id="recentupdate">최근 갱신 일시: <span id="recdate"></span></p>
+    <hr>
+    <div id="goon1div">
+        <h2>1군</h2>
+        <hr>
+        <table id="head1" class="theader" style="width: 100%">
+            <tr>
+                <th scope="col" class="ssid">1군</th>
+                <th scope="col" class="song">Butterfly Twist</th>
+                <th scope="col" class="song">T+ VS SHARK</th>
+                <th scope="col" class="song">Brain Power</th>
+                <th scope="col" class="song">Climax (Kobaryo’s FTN-Remix)	</th>
+                <th scope="col" class="song">Faithful dog “Hachi”</th>
+                <th scope="col" class="song">Date 2 (From “Your Name”)</th>
+                <th scope="col" class="sum">합계</th>
+            </tr>
+        </table>
+        <table id="goon1" class="tbodys" style="width: 100%">
+        </table>
+    </div>
+    <div id="goon2div">
+        <h2>2군</h2>
+        <hr>
+        <table id="head2" class="theader" style="width: 100%">
+            <tr>
+                <th scope="col" class="ssid">2군</th>
+                <th scope="col" class="song">社会距離 (feat.可不)</th>
+                <th scope="col" class="song">phony</th>
+                <th scope="col" class="song">Ultimate Ascension</th>
+                <th scope="col" class="song">Maze No.9</th>
+                <th scope="col" class="song">Chocolate Missile</th>
+                <th scope="col" class="song">Wocky - VS. Kapi Mod OST</th>
+                <th scope="col" class="sum">합계</th>
+            </tr>
+        </table>
+        <table id="goon2" class="tbodys" style="width: 100%">
+        </table>
+    </div>
+    <div id="goon3div">
+        <h2>3군</h2>
+        <hr>
+        <table id="head3" class="theader" style="width: 100%">
+            <tr>
+                <th scope="col" class="ssid">3군</th>
+                <th scope="col" class="song">Ochame Kinou</th>
+                <th scope="col" class="song">ROCKSTAR(TAK Remix)</th>
+                <th scope="col" class="song">Yell For the Dream! Patissiere’ (Short ver)</th>
+                <th scope="col" class="song">Muyaho</th>
+                <th scope="col" class="song">Ferocious Battlefield</th>
+                <th scope="col" class="song">In to the Night (ENG VER)</th>
+                <th scope="col" class="sum">합계</th>
+            </tr>
+        </table>
+        <table id="goon3" class="tbodys" style="width: 100%">
+        </table>
+    </div>
+</div>
+
+<script>
+</script>
+</body>
+</html>

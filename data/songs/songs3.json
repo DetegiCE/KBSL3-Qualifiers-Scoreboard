@@ -1,0 +1,44 @@
+{"songs":[
+  {
+    "name": "Ochame Kinou",
+    "diff": "E+",
+    "code": "21c49",
+    "hash": "59C0ED6499593BDB41B4CF1A3054A731A43EABA4",
+    "note": 553
+  },
+  {
+    "name": "ROCKSTAR(TAK Remix)",
+    "diff": "E+",
+    "code": "1bbb6",
+    "hash": "161FFE6CD4D294A017184E9B3815FE22D797DE43",
+    "note": 1204
+  },
+  {
+    "name": "Yell For the Dream! Patissiere’ (Short ver)",
+    "diff": "E+",
+    "code": "22471",
+    "hash": "688B87116E42C15403EF4B1E3E457BBB218FF2DE",
+    "note": 123
+  },
+  {
+    "name": "Muyaho",
+    "diff": "EX",
+    "code": "1506e",
+    "hash": "C6B6703476F167C44E4E4DC62394CC5021648D3B",
+    "note": 255
+  },
+  {
+    "name": "Ferocious Battlefield",
+    "diff": "EX",
+    "code": "d2d2",
+    "hash": "D2C1DF884AB0CCFAD751839F11B851EAEBC39978",
+    "note": 484
+  },
+  {
+    "name": "In to the Night (ENG VER)",
+    "diff": "EX",
+    "code": "21fae",
+    "hash": "D586F053DC00E3A33017D32377F870DE8EE22B91",
+    "note": 1120
+  }
+]}

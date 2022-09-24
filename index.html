@@ -58,13 +58,13 @@
                         data.player.forEach(function(elem) {
                             var appendString = `<tr style="width: inherit">
                                 <th scope="row" class="ssid"><a href="https://scoresaber.com/u/${elem['ssid']}">${elem['name']}</a> <a href="https://www.twitch.tv/${elem['twitch']}" style="color: #6441a5"><i class="bi bi-twitch"></i></a>`;
-                            if(elem['youtube']) {
-                                appendString += `<a href="https://www.youtube.com/channel/${elem['youtube']}" style="color: #c4302b"><i class="bi bi-youtube"></i></a>`
+                            if(elem.hasOwnProperty('youtube')) {
+                                appendString += `<a href="https://www.youtube.com/channel/${elem['youtube']}" style="color: #c4302b"><i class="bi bi-youtube"></i></a>`;
                             }
-                            if(elem['twitter']) {
-                                appendString += `<a href="https://twitter.com/${elem['twitter']}" style="color: #1DA1F2"><i class="bi bi-twitter"></i></a>`
+                            if(elem.hasOwnProperty('twitter')) {
+                                appendString += `<a href="https://twitter.com/${elem['twitter']}" style="color: #1DA1F2"><i class="bi bi-twitter"></i></a>`;
                             }
-                            appendString += '</th>'
+                            appendString += '</th>';
                             
                             var pool = ['28a4c', '28a2d', '2803c', '1f9f6', '202d2'];
                             var scoreSum = 0;
@@ -110,13 +110,13 @@
                         data.player.forEach(function(elem) {
                             var appendString = `<tr style="width: inherit">
                                 <th scope="row" class="ssid"><a href="https://scoresaber.com/u/${elem['ssid']}">${elem['name']}</a> <a href="https://www.twitch.tv/${elem['twitch']}" style="color: #6441a5"><i class="bi bi-twitch"></i></a>`;
-                            if(elem['youtube']) {
-                                appendString += `<a href="https://www.youtube.com/channel/${elem['youtube']}" style="color: #c4302b"><i class="bi bi-youtube"></i></a>`
+                            if(elem.hasOwnProperty('youtube')) {
+                                appendString += `<a href="https://www.youtube.com/channel/${elem['youtube']}" style="color: #c4302b"><i class="bi bi-youtube"></i></a>`;
                             }
-                            if(elem['twitter']) {
-                                appendString += `<a href="https://twitter.com/${elem['twitter']}" style="color: #1DA1F2"><i class="bi bi-twitter"></i></a>`
+                            if(elem.hasOwnProperty('twitter')) {
+                                appendString += `<a href="https://twitter.com/${elem['twitter']}" style="color: #1DA1F2"><i class="bi bi-twitter"></i></a>`;
                             }
-                            appendString += '</th>'
+                            appendString += '</th>';
                             
                             var pool = ['27eee', '1b890', '271a6', '22513', '57ed'];
                             var scoreSum = 0;
@@ -162,13 +162,13 @@
                         data.player.forEach(function(elem) {
                             var appendString = `<tr style="width: inherit">
                                 <th scope="row" class="ssid"><a href="https://scoresaber.com/u/${elem['ssid']}">${elem['name']}</a> <a href="https://www.twitch.tv/${elem['twitch']}" style="color: #6441a5"><i class="bi bi-twitch"></i></a>`;
-                            if(elem['youtube']) {
-                                appendString += `<a href="https://www.youtube.com/channel/${elem['youtube']}" style="color: #c4302b"><i class="bi bi-youtube"></i></a>`
+                            if(elem.hasOwnProperty('youtube')) {
+                                appendString += `<a href="https://www.youtube.com/channel/${elem['youtube']}" style="color: #c4302b"><i class="bi bi-youtube"></i></a>`;
                             }
-                            if(elem['twitter']) {
-                                appendString += `<a href="https://twitter.com/${elem['twitter']}" style="color: #1DA1F2"><i class="bi bi-twitter"></i></a>`
+                            if(elem.hasOwnProperty('twitter')) {
+                                appendString += `<a href="https://twitter.com/${elem['twitter']}" style="color: #1DA1F2"><i class="bi bi-twitter"></i></a>`;
                             }
-                            appendString += '</th>'
+                            appendString += '</th>';
                             
                             var pool = ['289c2', '29d32', '221e6', '1d1e6', '1e3ab'];
                             var scoreSum = 0;
@@ -212,15 +212,16 @@
                         });
                         var count4 = 0;
                         data.player.forEach(function(elem) {
+                            console.log(elem);
                             var appendString = `<tr style="width: inherit">
                                 <th scope="row" class="ssid"><a href="https://scoresaber.com/u/${elem['ssid']}">${elem['name']}</a> <a href="https://www.twitch.tv/${elem['twitch']}" style="color: #6441a5"><i class="bi bi-twitch"></i></a>`;
-                            if(elem['youtube']) {
-                                appendString += `<a href="https://www.youtube.com/channel/${elem['youtube']}" style="color: #c4302b"><i class="bi bi-youtube"></i></a>`
+                            if(elem.hasOwnProperty('youtube')) {
+                                appendString += `<a href="https://www.youtube.com/channel/${elem['youtube']}" style="color: #c4302b"><i class="bi bi-youtube"></i></a>`;
                             }
-                            if(elem['twitter']) {
-                                appendString += `<a href="https://twitter.com/${elem['twitter']}" style="color: #1DA1F2"><i class="bi bi-twitter"></i></a>`
+                            if(elem.hasOwnProperty('twitter')) {
+                                appendString += `<a href="https://twitter.com/${elem['twitter']}" style="color: #1DA1F2"><i class="bi bi-twitter"></i></a>`;
                             }
-                            appendString += '</th>'
+                            appendString += '</th>';
                             
                             var pool = ['76ca', '1ed57', '27b55', '266b3', '27233'];
                             var scoreSum = 0;

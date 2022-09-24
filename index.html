@@ -56,7 +56,7 @@
                         var count8 = 0;
                         data.player.forEach(function(elem) {
                             var appendString = `<tr style="width: inherit">
-                                <th scope="row" class="ssid"><a href="https://scoresaber.com/u/${elem['ssid']}">${elem['name']}</a></th>`;
+                                <th scope="row" class="ssid"><a href="https://scoresaber.com/u/${elem['ssid']}">${elem['name']}</a><a href="https://www.twitch.tv/${elem['twitch']}"><i class="bi bi-twitch"></i></a></th>`;
                             
                             var pool = ['28a4c', '28a2d', '2803c', '1f9f6', '202d2'];
                             var scoreSum = 0;
@@ -101,7 +101,7 @@
                         var count4 = 0;
                         data.player.forEach(function(elem) {
                             var appendString = `<tr style="width: inherit">
-                                <th scope="row" class="ssid"><a href="https://scoresaber.com/u/${elem['ssid']}">${elem['name']}</a></th>`;
+                                <th scope="row" class="ssid"><a href="https://scoresaber.com/u/${elem['ssid']}">${elem['name']}</a><a href="https://www.twitch.tv/${elem['twitch']}"><i class="bi bi-twitch"></i></a></th>`;
                             
                             var pool = ['27eee', '1b890', '271a6', '22513', '57ed'];
                             var scoreSum = 0;
@@ -146,7 +146,7 @@
                         var count4 = 0;
                         data.player.forEach(function(elem) {
                             var appendString = `<tr style="width: inherit">
-                                <th scope="row" class="ssid"><a href="https://scoresaber.com/u/${elem['ssid']}">${elem['name']}</a></th>`;
+                                <th scope="row" class="ssid"><a href="https://scoresaber.com/u/${elem['ssid']}">${elem['name']}</a><a href="https://www.twitch.tv/${elem['twitch']}"><i class="bi bi-twitch"></i></a></th>`;
                             
                             var pool = ['289c2', '29d32', '221e6', '1d1e6', '1e3ab'];
                             var scoreSum = 0;
@@ -191,7 +191,7 @@
                         var count4 = 0;
                         data.player.forEach(function(elem) {
                             var appendString = `<tr style="width: inherit">
-                                <th scope="row" class="ssid"><a href="https://scoresaber.com/u/${elem['ssid']}">${elem['name']}</a></th>`;
+                                <th scope="row" class="ssid"><a href="https://scoresaber.com/u/${elem['ssid']}">${elem['name']}</a><a href="https://www.twitch.tv/${elem['twitch']}"><i class="bi bi-twitch"></i></a></th>`;
                             
                             var pool = ['76ca', '27c90', '27b55', '266b3', '27233'];
                             var scoreSum = 0;
@@ -322,8 +322,11 @@
     <button type="button" class="btn btn-warning" onclick="PrintDiv($('#goon4div'));">시니어 저장</button>
 </div>
 <div id="container">
-    <h1>제3회 전자칼잽이 대회 예선 점수판</h1>
+    <h1>제 3회 전자칼잽이 대회 예선 점수판</h1>
     <p id="recentupdate">최근 갱신 일시: <span id="recdate"></span></p>
+    <div>
+        <a href="https://bsckorea.github.io/2022/08/27/Korea-BeatSaber-League-3.html">대회 공지사항 페이지 바로가기</a> | <a href="https://discord.gg/SEFBZrG">한국 비트세이버 커뮤니티 바로가기</a>
+    </div>
     <hr>
     <div id="goon1div">
         <h2>TECH</h2>

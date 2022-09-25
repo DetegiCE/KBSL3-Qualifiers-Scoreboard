@@ -78,7 +78,7 @@
                                 appendString += `<td class="song">${elem[p].toFixed(3)} ${rBadge(elem[p + 'R'])}</td>`;
                                 scoreSum += elem[p];
                             });
-                            appendString += `<td class="sum">${scoreSum.toFixed(3)}<br>(Avg. ${(scoreSum / 6).toFixed(3)})</td></tr>`;
+                            appendString += `<td class="sum">${scoreSum.toFixed(3)}<br>(Avg. ${(scoreSum / pool.length).toFixed(3)})</td></tr>`;
                             $('#goon1').append(appendString);
                             count8++;
                             if (count8 === 8) {
@@ -130,7 +130,7 @@
                                 appendString += `<td class="song">${elem[p].toFixed(3)} ${rBadge(elem[p + 'R'])}</td>`;
                                 scoreSum += elem[p];
                             });
-                            appendString += `<td class="sum">${scoreSum.toFixed(3)}<br>(Avg. ${(scoreSum / 6).toFixed(3)})</td></tr>`;
+                            appendString += `<td class="sum">${scoreSum.toFixed(3)}<br>(Avg. ${(scoreSum / pool.length).toFixed(3)})</td></tr>`;
                             $('#goon2').append(appendString);
                             count4++;
                             if (count4 === 4) {
@@ -182,7 +182,7 @@
                                 appendString += `<td class="song">${elem[p].toFixed(3)} ${rBadge(elem[p + 'R'])}</td>`;
                                 scoreSum += elem[p];
                             });
-                            appendString += `<td class="sum">${scoreSum.toFixed(3)}<br>(Avg. ${(scoreSum / 6).toFixed(3)})</td></tr>`;
+                            appendString += `<td class="sum">${scoreSum.toFixed(3)}<br>(Avg. ${(scoreSum / pool.length).toFixed(3)})</td></tr>`;
                             $('#goon3').append(appendString);
                             count4++;
                             if (count4 === 4) {
@@ -235,7 +235,7 @@
                                 appendString += `<td class="song">${elem[p].toFixed(3)} ${rBadge(elem[p + 'R'])}</td>`;
                                 scoreSum += elem[p];
                             });
-                            appendString += `<td class="sum">${scoreSum.toFixed(3)}<br>(Avg. ${(scoreSum / 6).toFixed(3)})</td></tr>`;
+                            appendString += `<td class="sum">${scoreSum.toFixed(3)}<br>(Avg. ${(scoreSum / pool.length).toFixed(3)})</td></tr>`;
                             $('#goon4').append(appendString);
                             count4++;
                             if (count4 === 4) {

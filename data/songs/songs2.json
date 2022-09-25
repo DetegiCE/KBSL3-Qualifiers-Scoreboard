@@ -1,37 +1,39 @@
-{"songs":[
-  {
-    "name": "Brain Power",
-    "diff": "NM",
-    "code": "27eee",
-    "hash": "6636bb01616c9c335ddb1a29f1d7cd6eeac49790",
-    "note": 112
-  },
-  {
-    "name": "Cinderella",
-    "diff": "E+",
-    "code": "1b890",
-    "hash": "0c613e9ee92bfab6d055594178cadb80fbc9a254",
-    "note": 982
-  },
-  {
-    "name": "Phony",
-    "diff": "NM",
-    "code": "271a6",
-    "hash": "69480aac62d5a61363c2938d8cb3f58bba3ec437",
-    "note": 388
-  },
-  {
-    "name": "Autonomy",
-    "diff": "EZ",
-    "code": "22513",
-    "hash": "eead7a8a1e8fd60d4a8da0092b6fbdeea6914cbe",
-    "note": 578
-  },
-  {
-    "name": "Ai no Sukima",
-    "diff": "EZ",
-    "code": "57ed",
-    "hash": "db53bf5e53e8e16452304aa6895cd1051e677cd2",
-    "note": 125
-  }
-]}
+{
+  "songs": [
+    {
+      "name": "Brain Power",
+      "diff": "NM",
+      "code": "27eee",
+      "hash": "6636bb01616c9c335ddb1a29f1d7cd6eeac49790",
+      "note": 112
+    },
+    {
+      "name": "Cinderella",
+      "diff": "EZ",
+      "code": "1b890",
+      "hash": "0c613e9ee92bfab6d055594178cadb80fbc9a254",
+      "note": 212
+    },
+    {
+      "name": "Phony",
+      "diff": "NM",
+      "code": "271a6",
+      "hash": "69480aac62d5a61363c2938d8cb3f58bba3ec437",
+      "note": 388
+    },
+    {
+      "name": "Autonomy",
+      "diff": "EZ",
+      "code": "22513",
+      "hash": "eead7a8a1e8fd60d4a8da0092b6fbdeea6914cbe",
+      "note": 578
+    },
+    {
+      "name": "Ai no Sukima",
+      "diff": "EZ",
+      "code": "57ed",
+      "hash": "db53bf5e53e8e16452304aa6895cd1051e677cd2",
+      "note": 125
+    }
+  ]
+}

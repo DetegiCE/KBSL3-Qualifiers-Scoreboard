@@ -75,7 +75,10 @@
                             var pool = ['28a4c', '28a2d', '2803c', '1f9f6', '202d2'];
                             var scoreSum = 0;
                             pool.forEach(p => {
-                                appendString += `<td class="song">${elem[p].toFixed(3)} ${rBadge(elem[p + 'R'])}</td>`;
+                                var missCount = '❓';
+                                if (elem[p + 'M'] == 0) missCount = '<span style="color: rgb(22, 193, 12);">✓</span>';
+                                else missCount = `<span style="color: red;">✗ ${elem[p + 'M']}</span>`;
+                                appendString += `<td class="song">${elem[p].toFixed(3)} ${rBadge(elem[p + 'R'])}<br>${missCount}</td>`;
                                 scoreSum += elem[p];
                             });
                             appendString += `<td class="sum">${scoreSum.toFixed(3)}<br>(Avg. ${(scoreSum / pool.length).toFixed(3)})</td></tr>`;
@@ -127,7 +130,10 @@
                             var pool = ['27eee', '1b890', '271a6', '22513', '57ed'];
                             var scoreSum = 0;
                             pool.forEach(p => {
-                                appendString += `<td class="song">${elem[p].toFixed(3)} ${rBadge(elem[p + 'R'])}</td>`;
+                                var missCount = '❓';
+                                if (elem[p + 'M'] == 0) missCount = '<span style="color: rgb(22, 193, 12);">✓</span>';
+                                else missCount = `<span style="color: red;">✗ ${elem[p + 'M']}</span>`;
+                                appendString += `<td class="song">${elem[p].toFixed(3)} ${rBadge(elem[p + 'R'])}<br>${missCount}</td>`;
                                 scoreSum += elem[p];
                             });
                             appendString += `<td class="sum">${scoreSum.toFixed(3)}<br>(Avg. ${(scoreSum / pool.length).toFixed(3)})</td></tr>`;
@@ -179,7 +185,10 @@
                             var pool = ['289c2', '29d32', '221e6', '1d1e6', '1e3ab'];
                             var scoreSum = 0;
                             pool.forEach(p => {
-                                appendString += `<td class="song">${elem[p].toFixed(3)} ${rBadge(elem[p + 'R'])}</td>`;
+                                var missCount = '❓';
+                                if (elem[p + 'M'] == 0) missCount = '<span style="color: rgb(22, 193, 12);">✓</span>';
+                                else missCount = `<span style="color: red;">✗ ${elem[p + 'M']}</span>`;
+                                appendString += `<td class="song">${elem[p].toFixed(3)} ${rBadge(elem[p + 'R'])}<br>${missCount}</td>`;
                                 scoreSum += elem[p];
                             });
                             appendString += `<td class="sum">${scoreSum.toFixed(3)}<br>(Avg. ${(scoreSum / pool.length).toFixed(3)})</td></tr>`;
@@ -232,7 +241,10 @@
                             var pool = ['76ca', '1ed57', '27b55', '266b3', '27233'];
                             var scoreSum = 0;
                             pool.forEach(p => {
-                                appendString += `<td class="song">${elem[p].toFixed(3)} ${rBadge(elem[p + 'R'])}</td>`;
+                                var missCount = '❓';
+                                if (elem[p + 'M'] == 0) missCount = '<span style="color: rgb(22, 193, 12);">✓</span>';
+                                else missCount = `<span style="color: red;">✗ ${elem[p + 'M']}</span>`;
+                                appendString += `<td class="song">${elem[p].toFixed(3)} ${rBadge(elem[p + 'R'])}<br>${missCount}</td>`;
                                 scoreSum += elem[p];
                             });
                             appendString += `<td class="sum">${scoreSum.toFixed(3)}<br>(Avg. ${(scoreSum / pool.length).toFixed(3)})</td></tr>`;

@@ -32,6 +32,7 @@ def getScoresBySong(hash: str, diff: str, grade: int) -> dict:
         for s in rjson['scores']:
             if s['leaderboardPlayerInfo']['id'] in ssidList:
                 scores[s['leaderboardPlayerInfo']['id']] = s['baseScore']
+                scores[s['leaderboardPlayerInfo']['id']+"M"] = s['missedNotes'] + s['badCuts']
                 count -= 1
         if count == 0:
             break
@@ -58,9 +59,11 @@ def getScores(grade: int):
             if p['ssid'] in sdict:
                 p[s['code']] = getAcc(s['note'], sdict[p['ssid']])
                 p[s['code']+'R'] = calcRank(sdict[p['ssid']], sdict)
+                p[s['code']+'M'] = sdict[p['ssid']+'M']
             else:
                 p[s['code']] = 0
                 p[s['code']+'R'] = calcRank(0, sdict)
+                p[s['code']+'M'] = -1
     return player
 
 
